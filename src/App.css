@@ -1,0 +1,540 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f7f7;
+  /* Remove max-width here so the app can fill the entire screen on mobile.
+     We'll use max-width on the .dashboard-container instead. */
+  margin: 0;
+  padding: 0;
+}
+
+/* -------------- Dashboard -------------- */
+.dashboard-container {
+  /* This ensures the content doesn't exceed 480px on larger screens,
+     but on mobile (e.g., 360px), it fills the entire width. */
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #7b3ee3; /* purple background */
+  padding: 1rem;
+  width: 460px; /* Fill container width */
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.notifications {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+/* Balance Section */
+.balance-section {
+  width: 460px; /* Fill container width */
+  background: #7b3ee3;
+  color: #fff;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.balance-label {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.balance-amount {
+  font-size: 2.4rem;
+  margin: 0.4rem 0 0;
+  font-weight: 600;
+}
+
+/* Action Buttons (3) */
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  width: 460px; /* Fill container width */
+  margin: 0 0 1rem; /* Remove negative margin to avoid layout issues */
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 0.5rem;
+  padding: 0.75rem 0;
+}
+
+.action-button svg {
+  width: 20px;
+  height: 20px;
+  color: #7b3ee3;
+}
+
+.action-button span {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Payment List */
+.payment-list {
+  width: 460px; /* Fill container width */
+  padding: 0 1rem; /* Slight side padding */
+  box-sizing: border-box;
+}
+
+.payment-list h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.payment-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+}
+
+.payment-item {
+  background: #fff;
+  border-radius: 0.8rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.payment-item:active {
+  transform: scale(0.95);
+}
+
+.payment-item svg {
+  width: 20px;
+  height: 20px;
+  color: #7b3ee3;
+}
+
+.payment-item span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Transaction History */
+.transaction-history {
+  width: 460px; /* Fill container width */
+  margin: 1rem 0; /* No side margin so it stretches fully */
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-history h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.transaction-history ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 0.6rem;
+  padding: 0.9rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.2rem;
+  border-left: 4px solid transparent;
+  transition: background-color 0.2s ease;
+}
+
+.transaction-item:active {
+  background-color: #f0f0f0;
+}
+
+.transaction-description {
+  font-weight: 500;
+  color: #333;
+}
+
+.transaction-amount {
+  font-weight: 600;
+}
+
+/* Color indicators for income vs. outcome */
+.transaction-item.income {
+  border-left-color: #10b981; /* Green for income */
+}
+.transaction-item.income .transaction-amount {
+  color: #059669;
+}
+
+.transaction-item.outcome {
+  border-left-color: #ef4444; /* Red for outcome */
+}
+.transaction-item.outcome .transaction-amount {
+  color: #b91c1c;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+
+  /* For larger screens, keep it centered and max width of 480px. */
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  text-align: center;
+  flex: 1;
+  color: #666;
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-item:active {
+  color: #7b3ee3;
+}
+
+.nav-item span {
+  margin-top: 2px;
+}
+
+.nav-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Center "Scan" Button */
+.scan-button {
+  width: 60px;
+  height: 60px;
+  background: #7b3ee3;
+  border-radius: 50%;
+  transform: translateY(-35%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.scan-button:active {
+  transform: translateY(-35%) scale(0.95);
+}
+
+.scan-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+
+
+
+
+
+/* LOGIN PAGE CSS */
+
+/***************************************************
+ * Purple Background Login Styles
+ ***************************************************/
+
+/* Outer container to center the login card */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Purple background */
+  background-color: #7b3ee3;
+  height: 100vh; /* Full viewport height */
+  padding: 1rem; /* Small padding for mobile devices */
+}
+
+/* Card-like container for the login form */
+.login-card {
+  background-color: #fff; /* White card */
+  width: 100%;
+  max-width: 400px; /* Limit card width on large screens */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading or logo placeholder */
+.chase-heading {
+  color: #2169c2; /* Example "Chase-like" navy color (feel free to change) */
+  font-size: 3.9rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-left: 16%;
+}
+
+/* Smaller heading for "Sign in" */
+.login-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Form group spacing */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+/* Input fields */
+.form-group input {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 0.95rem;
+}
+
+/* Sign in button */
+.login-card button[type="submit"] {
+  width: 100%;
+  background-color: #0c2340; /* Navy Blue or any other color */
+  color: #fff;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 3px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.login-card button[type="submit"]:hover {
+  background-color: #004b9b; /* Slightly lighter navy on hover */
+}
+
+/* Links (Forgot password, Sign up, etc.) */
+.links {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.links a {
+  font-size: 0.85rem;
+  color: #0c2340;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.links a:hover {
+  color: #004b9b;
+}
+
+
+/* TRANSFER */
+
+/* Transfer Container */
+.transfer-container {
+  background-color: #f1eff5; /* Dark background */
+  min-height: 100vh;
+  color: #fff;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.transfer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.transfer-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f3f4f5;
+  background-color: #2169c2;
+  margin: 2rem;
+}
+
+.transfer-history-link {
+  font-size: 0.85rem;
+  color: #3a12eb; /* Example highlight color */
+  cursor: pointer;
+}
+
+/* Banner (e.g. free transfers) */
+.transfer-banner {
+  background-color: #5d10f8;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Transfer Form */
+.transfer-form {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.transfer-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.transfer-form input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #3b3b3b;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.recipient-info {
+  background-color: #3b3b3b;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.transfer-btn {
+  width: 100%;
+  background-color: #47b2ff;
+  color: #000;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.transfer-btn:hover {
+  background-color: #63c1ff;
+}
+
+/* Modal Overlay & Content */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999; /* Above everything else */
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #000;
+  padding: 1.5rem;
+  border-radius: 6px;
+  width: 80%;
+  max-width: 350px;
+}
+
+.modal-content h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.modal-content form input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.modal-content form button {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #47b2ff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Success Modal (Green) */
+.modal-content.success {
+  background-color: #dff0d8;
+  color: #0f110f;
+}
+
+.modal-content.success button {
+  background-color: #3c763d;
+  color: #fff;
+  margin-top: 1rem;
+}
