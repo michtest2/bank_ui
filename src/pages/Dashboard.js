@@ -51,7 +51,7 @@ function Dashboard() {
       {/* Top Bar */}
       <div className="top-bar">
         <img
-          src="https://res.cloudinary.com/dqdueisaf/image/upload/v1741192836/IMG-20250304-WA0080_1_sgynzt.jpg" /* Replace with your own avatar image path */
+          src="https://res.cloudinary.com/dqdueisaf/image/upload/v1747134202/1000358039_shg8pk.jpg" /* Replace with your own avatar image path */
           alt="User Avatar"
           className="avatar"
         />
